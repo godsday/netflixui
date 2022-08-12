@@ -130,7 +130,7 @@ class _ComingSoonState extends State<ComingSoon> {
                           child: Text(
                             comingsoon[index].title!,
                             overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(color: Colors.white, fontSize: 25),
+                            style: const TextStyle(color: Colors.white, fontSize: 25,fontWeight: FontWeight.bold),
                           ),
                         ),
                         Row(

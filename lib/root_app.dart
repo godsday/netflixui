@@ -14,6 +14,9 @@ class RootApp extends StatefulWidget {
 
 class _RootAppState extends State<RootApp> {
   int activetab = 0;
+  bool activatate = false;
+  // Color tabColor = Colors.white;
+  // Color activeColor=Colors.red;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +30,12 @@ class _RootAppState extends State<RootApp> {
   Widget getBody() {
     return IndexedStack(
       index: activetab,
-      children: const [HomePage(), ComingSoon(), SearchPage(), DownloadPage()],
+      children: [
+        HomePage(),
+        ComingSoon(),
+        SearchPage(),
+        DownloadPage()
+      ],
     );
   }
 
@@ -44,18 +52,19 @@ class _RootAppState extends State<RootApp> {
               onTap: () {
                 setState(() {
                   activetab = index;
+                  //tabColor=activeColor;
                 });
               },
               child: Column(
                 children: [
                   Icon(
                     items[index]['icon'],
-                    color: Colors.white,
+                    color: active == true ? Colors.red : Colors.white,
                   ),
                   const SizedBox(height: 10),
                   Text(
                     items[index]['text'],
-                    style: const TextStyle(color: Colors.white, fontSize: 10),
+                    style: TextStyle(color: Colors.white, fontSize: 10),
                   )
                 ],
               ),

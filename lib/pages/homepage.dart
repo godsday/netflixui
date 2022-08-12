@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:netflix/json/home_json.dart';
 import 'package:netflix/pages/detailpage.dart';
 import 'package:tmdb_api/tmdb_api.dart';
+  bool active =false;
 
 List trendingmovies = [];
 List popularmovies = [];
@@ -11,7 +12,9 @@ const readaccesstoken =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1OWY4NmYzNDIwN2M5OWQ3NjkwZDFkZWI5MzI1MjlmZSIsInN1YiI6IjYyYTQ2MzZhZTM4YmQ4MTRkNTRhZDk2NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MRMrSESLNg_viXeICrMvzQgWU6vXYc8aKTSlywPLZcA";
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  //bool active =true;
+   HomePage({Key? key, }) : super(key: key);
+  
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -50,7 +53,7 @@ class _HomePageState extends State<HomePage> {
     var size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
-      child: SingleChildScrollView(
+      child:upcomingMovies.isEmpty?Center(child: CircularProgressIndicator()): SingleChildScrollView(
         child: Stack(
           children: [
             Container(
